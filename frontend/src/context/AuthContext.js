@@ -18,7 +18,12 @@ export const AuthProvider = ({ children }) => {
     // Check if user is logged in on app start
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
-      setUser(JSON.parse(savedUser));
+      try {
+        setUser(JSON.parse(savedUser));
+      } catch (error) {
+        console.error('Error parsing saved user:', error);
+        localStorage.removeItem('user');
+      }
     }
     setLoading(false);
   }, []);

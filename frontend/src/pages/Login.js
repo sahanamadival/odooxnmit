@@ -84,33 +84,36 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="text-center">
-          <div className="mx-auto h-16 w-16 bg-blue-600 rounded-full flex items-center justify-center mb-4">
-            <svg className="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="text-center animate-fade-in">
+          <div className="mx-auto h-20 w-20 bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center mb-6 shadow-strong">
+            <svg className="h-10 w-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
             </svg>
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Manufacturing Management System
+          <h1 className="text-4xl font-bold text-secondary-900 mb-3">
+            Manufacturing Management
           </h1>
-          <h2 className="text-xl text-gray-600 mb-8">
+          <h2 className="text-xl text-secondary-600 mb-2">
             Voice-Enabled Production Control
           </h2>
+          <p className="text-sm text-secondary-500 mb-8">
+            Streamline your manufacturing operations with intelligent voice commands
+          </p>
         </div>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow-xl sm:rounded-2xl sm:px-10 border border-gray-100">
+        <div className="bg-white/80 backdrop-blur-sm py-8 px-4 shadow-strong sm:rounded-2xl sm:px-10 border border-secondary-200/60 animate-slide-in">
           {/* Tab Navigation */}
-          <div className="flex space-x-1 mb-8 bg-gray-100 p-1 rounded-xl">
+          <div className="flex space-x-1 mb-8 bg-secondary-100 p-1 rounded-xl">
             <button
               onClick={() => setActiveTab('login')}
               className={`flex-1 py-3 px-4 text-sm font-medium rounded-lg transition-all duration-300 ${
                 activeTab === 'login'
-                  ? 'bg-white text-blue-700 shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                  ? 'bg-white text-primary-700 shadow-soft'
+                  : 'text-secondary-500 hover:text-secondary-700 hover:bg-secondary-50'
               }`}
             >
               <div className="flex items-center justify-center space-x-2">
@@ -124,8 +127,8 @@ const Login = () => {
               onClick={() => setActiveTab('signup')}
               className={`flex-1 py-3 px-4 text-sm font-medium rounded-lg transition-all duration-300 ${
                 activeTab === 'signup'
-                  ? 'bg-white text-blue-700 shadow-sm'
-                  : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                  ? 'bg-white text-primary-700 shadow-soft'
+                  : 'text-secondary-500 hover:text-secondary-700 hover:bg-secondary-50'
               }`}
             >
               <div className="flex items-center justify-center space-x-2">
@@ -141,12 +144,12 @@ const Login = () => {
           {activeTab === 'login' && (
             <form className="space-y-6" onSubmit={handleLoginSubmit}>
               <div>
-                <label htmlFor="loginUserId" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="loginUserId" className="block text-sm font-medium text-secondary-700 mb-2">
                   User ID
                 </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="input-group">
+                  <div className="input-icon">
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                   </div>
@@ -157,19 +160,19 @@ const Login = () => {
                     required
                     value={loginData.userId}
                     onChange={handleLoginChange}
-                    className="input-field pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="input-field-with-icon"
                     placeholder="Enter your user ID"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="loginPassword" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="loginPassword" className="block text-sm font-medium text-secondary-700 mb-2">
                   Password
                 </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="input-group">
+                  <div className="input-icon">
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
                   </div>
@@ -180,15 +183,15 @@ const Login = () => {
                     required
                     value={loginData.password}
                     onChange={handleLoginChange}
-                    className="input-field pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="input-field-with-icon"
                     placeholder="Enter your password"
                   />
                 </div>
               </div>
 
               {error && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                  <p className="text-red-800 text-sm">{error}</p>
+                <div className="bg-danger-50 border border-danger-200 rounded-lg p-3">
+                  <p className="text-danger-800 text-sm">{error}</p>
                 </div>
               )}
 
@@ -196,7 +199,7 @@ const Login = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
+                  className="w-full btn-primary btn-lg"
                 >
                   {loading ? (
                     <>
@@ -406,24 +409,24 @@ const Login = () => {
             </form>
           )}
 
-          <div className="mt-8 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
+          <div className="mt-8 p-4 bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl border border-primary-200">
             <div className="flex items-center space-x-2 mb-3">
-              <svg className="h-5 w-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-5 w-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <h3 className="text-sm font-medium text-blue-900">Demo Credentials</h3>
+              <h3 className="text-sm font-medium text-primary-900">Demo Credentials</h3>
             </div>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
-                <span className="text-xs text-blue-700 font-medium">User ID:</span>
-                <span className="font-mono text-xs bg-blue-100 px-2 py-1 rounded text-blue-800">admin</span>
+                <span className="text-xs text-primary-700 font-medium">User ID:</span>
+                <span className="font-mono text-xs bg-primary-100 px-2 py-1 rounded text-primary-800">admin</span>
               </div>
               <div className="flex items-center space-x-2">
-                <span className="text-xs text-blue-700 font-medium">Password:</span>
-                <span className="font-mono text-xs bg-blue-100 px-2 py-1 rounded text-blue-800">password</span>
+                <span className="text-xs text-primary-700 font-medium">Password:</span>
+                <span className="font-mono text-xs bg-primary-100 px-2 py-1 rounded text-primary-800">password</span>
               </div>
             </div>
-            <p className="text-xs text-blue-600 mt-3">
+            <p className="text-xs text-primary-600 mt-3">
               💡 <strong>Tip:</strong> You can also create a new account using the Sign Up tab!
             </p>
           </div>
